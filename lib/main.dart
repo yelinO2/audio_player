@@ -1,7 +1,7 @@
-import 'package:audio_player/routes/music_player.dart';
+import 'package:audio_player/screens/music_player.dart';
 import 'package:flutter/material.dart';
-import 'package:audio_player/routes/login_screen.dart';
-import 'package:audio_player/routes/sign_up_screen.dart';
+import 'package:audio_player/screens/login_screen.dart';
+import 'package:audio_player/screens/sign_up_screen.dart';
 
 void main() {
   runApp(const MyApp());

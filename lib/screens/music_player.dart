@@ -51,6 +51,24 @@ class _MusicPlayerState extends State<MusicPlayer> {
     title = playlist.myPlaylist[currentSong].title;
     artist = playlist.myPlaylist[currentSong].artist;
     albumn = playlist.myPlaylist[currentSong].albumn;
+    if (currentSong == playlist.myPlaylist.length - 1) {
+      currentSong = 0;
+    } else {
+      currentSong++;
+    }
+    play();
+  }
+
+  previous() {
+    src = playlist.myPlaylist[currentSong].src;
+    title = playlist.myPlaylist[currentSong].title;
+    artist = playlist.myPlaylist[currentSong].artist;
+    albumn = playlist.myPlaylist[currentSong].albumn;
+    if (currentSong == 0) {
+      currentSong = playlist.myPlaylist.length - 1;
+    } else {
+      currentSong--;
+    }
     play();
   }
 
@@ -144,10 +162,7 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          currentSong <= 0
-                              ? currentSong = playlist.myPlaylist.length
-                              : currentSong--;
-                          next();
+                          previous();
                         });
                       },
                       icon: const Icon(Icons.skip_previous_rounded),
@@ -177,9 +192,6 @@ class _MusicPlayerState extends State<MusicPlayer> {
                     child: IconButton(
                       onPressed: () {
                         setState(() {
-                          currentSong >= playlist.myPlaylist.length
-                              ? currentSong = 0
-                              : currentSong++;
                           next();
                         });
                       },
