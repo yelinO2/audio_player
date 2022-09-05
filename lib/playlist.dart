@@ -1,7 +1,7 @@
 import 'song.dart';
 
 class Playlist {
-  List<Song> myPlaylist = [
+  final List<Song> _myPlaylist = [
     Song(
         src: 'with_you.mp3',
         title: 'With You',
@@ -24,4 +24,24 @@ class Playlist {
         artist: 'Daniel Shaw',
         albumn: 'itsyou.jpg'),
   ];
+
+  getSrc(currentSong) {
+    return _myPlaylist[currentSong].src;
+  }
+
+  getTitle(currentSong) {
+    return _myPlaylist[currentSong].title;
+  }
+
+  getArtist(currentSong) {
+    return _myPlaylist[currentSong].artist;
+  }
+
+  getAlbumn(currentSong) {
+    return _myPlaylist[currentSong].albumn;
+  }
+
+  getLength() {
+    return _myPlaylist.length;
+  }
 }

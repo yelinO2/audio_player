@@ -20,10 +20,10 @@ class _MusicPlayerState extends State<MusicPlayer> {
   Duration duration = Duration.zero;
   Duration position = Duration.zero;
 
-  String src = playlist.myPlaylist[currentSong].src;
-  String? title = playlist.myPlaylist[currentSong].title;
-  String? artist = playlist.myPlaylist[currentSong].artist;
-  String? albumn = playlist.myPlaylist[currentSong].albumn;
+  String src = playlist.getSrc(currentSong);
+  String? title = playlist.getTitle(currentSong);
+  String? artist = playlist.getArtist(currentSong);
+  String? albumn = playlist.getAlbumn(currentSong);
 
   String formatTime(Duration duration) {
     String twoDigits(int n) => n.toString().padLeft(2, '0');
@@ -47,11 +47,11 @@ class _MusicPlayerState extends State<MusicPlayer> {
   }
 
   next() {
-    src = playlist.myPlaylist[currentSong].src;
-    title = playlist.myPlaylist[currentSong].title;
-    artist = playlist.myPlaylist[currentSong].artist;
-    albumn = playlist.myPlaylist[currentSong].albumn;
-    if (currentSong == playlist.myPlaylist.length - 1) {
+    src = playlist.getSrc(currentSong);
+    title = playlist.getTitle(currentSong);
+    artist = playlist.getArtist(currentSong);
+    albumn = playlist.getAlbumn(currentSong);
+    if (currentSong == playlist.getLength() - 1) {
       currentSong = 0;
     } else {
       currentSong++;
@@ -60,12 +60,12 @@ class _MusicPlayerState extends State<MusicPlayer> {
   }
 
   previous() {
-    src = playlist.myPlaylist[currentSong].src;
-    title = playlist.myPlaylist[currentSong].title;
-    artist = playlist.myPlaylist[currentSong].artist;
-    albumn = playlist.myPlaylist[currentSong].albumn;
+    src = playlist.getSrc(currentSong);
+    title = playlist.getTitle(currentSong);
+    artist = playlist.getArtist(currentSong);
+    albumn = playlist.getAlbumn(currentSong);
     if (currentSong == 0) {
-      currentSong = playlist.myPlaylist.length - 1;
+      currentSong = playlist.getLength() - 1;
     } else {
       currentSong--;
     }
